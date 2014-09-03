@@ -14,7 +14,7 @@ page.css('.homepage-columns h2 a').each do |link|
   headlines << link.inner_html
 end
 
-File.open(URL_FILE, 'w') do |f|
+File.open(URL_FILE, 'a') do |f|
   f.puts Time.now
   f.puts headlines
 end
