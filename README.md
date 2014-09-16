@@ -2,7 +2,7 @@ I'm looking to see how viral sites like BuzzFeed, Upworthy and ViralNova might r
 
 These sites may not need to change their headline styles if readers spend enough time reading the stories. But I'm curious if they change up their headlines in order to not risk running afoul of Facebook.
 
-So I wrote up some sites that pull the top headlines from the home pages of BuzzFeed, Upworthy, ViralNova, Distractify and EliteDaily.
+So I wrote up some sites that pull the top headlines from the home pages of BuzzFeed, Upworthy, ViralNova, Distractify and EliteDaily. I'm also pulling headlines from The New York Times, Time, Vox and Quartz's home pages for comparison.
 
 Running a script will pull that site's top headlines and paste them into a .txt file in a headlines folder.
 
