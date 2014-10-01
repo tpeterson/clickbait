@@ -39,9 +39,9 @@ vox_url = 'http://www.vox.com/'
 vox_URL_FILE = "headlines_loop/vox.txt"
 vox_headlines = []
 
-stop_time = Time.new(2014, 9, 18)
+#stop_time = Time.new(2014, 9, 18)
 
-until Time.now >= stop_time do
+#until Time.now >= stop_time do
 
 #BUZZFEED
   buzzfeed_page = Nokogiri::HTML(open(buzzfeed_url))
@@ -50,17 +50,17 @@ until Time.now >= stop_time do
   end
   File.open(buzzfeed_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts buzzfeed_headlines
+    f.puts buzzfeed_headlines[0..9]
   end
 
 #DISTRACTIFY
   distractify_page = Nokogiri::HTML(open(distractify_url))
-  distractify_page.css('.l-main_top .text-holder h1', '.l-main_column .b-post_item h1').each do |link|
+  distractify_page.css('#top-post-wrapper h2 a', '.post-item-wrapper h3 a').each do |link|
     distractify_headlines << link.inner_html
   end
   File.open(distractify_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts distractify_headlines
+    f.puts distractify_headlines[0..9]
   end
 
 #ELITEDAILY
@@ -70,7 +70,7 @@ until Time.now >= stop_time do
   end
   File.open(elitedaily_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts elitedaily_headlines
+    f.puts elitedaily_headlines[0..9]
   end
 
 #UPWORTHY
@@ -80,7 +80,7 @@ until Time.now >= stop_time do
   end
   File.open(upworthy_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts upworthy_headlines
+    f.puts upworthy_headlines[0..9]
   end
 
 #VIRALNOVA
@@ -90,7 +90,7 @@ until Time.now >= stop_time do
   end
   File.open(viralnova_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts viralnova_headlines
+    f.puts viralnova_headlines[0..9]
   end
 
 #NYTIMES
@@ -100,7 +100,7 @@ until Time.now >= stop_time do
   end
   File.open(nyt_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts nyt_headlines
+    f.puts nyt_headlines[0..9]
   end
 
 #QUARTZ
@@ -110,7 +110,7 @@ until Time.now >= stop_time do
   end
   File.open(qz_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts qz_headlines
+    f.puts qz_headlines[0..9]
   end
 
 #TIME
@@ -120,7 +120,7 @@ until Time.now >= stop_time do
   end
   File.open(time_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts time_headlines
+    f.puts time_headlines[0..9]
   end
 
 #VOX
@@ -130,11 +130,19 @@ until Time.now >= stop_time do
   end
   File.open(vox_URL_FILE, 'a') do |f|
     f.puts Time.now
-    f.puts vox_headlines
+    f.puts vox_headlines[0..9]
   end
 
-puts "Scraped at #{Time.now}"
-sleep 86400
-end
-
+#puts "Scraped at #{Time.now}"
+#sleep 86400
+#end
+puts "Copied #{buzzfeed_headlines.length} BuzzFeed headlines"
+puts "Copied #{distractify_headlines.length} Distractify headlines"
+puts "Copied #{elitedaily_headlines.length} EliteDaily headlines"
+puts "Copied #{nyt_headlines.length} New York Times headlines"
+puts "Copied #{qz_headlines.length} Quartz headlines"
+puts "Copied #{time_headlines.length} Time headlines"
+puts "Copied #{upworthy_headlines.length} Upworthy headlines"
+puts "Copied #{viralnova_headlines.length} ViralNova headlines"
+puts "Copied #{vox_headlines.length} Vox headlines"
 puts "FINISHED"
