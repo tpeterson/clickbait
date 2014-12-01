@@ -125,7 +125,7 @@ vox_headlines = []
 
 #VOX
   vox_page = Nokogiri::HTML(open(vox_url))
-  vox_page.css('.m-hp-block__container h2 a').each do |link|
+  vox_page.css('.m-hp-latest__list-container a').each do |link|
     vox_headlines << link.inner_html
   end
   File.open(vox_URL_FILE, 'a') do |f|

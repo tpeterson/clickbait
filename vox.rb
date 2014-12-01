@@ -10,7 +10,7 @@ url = 'http://www.vox.com/'
 
 page = Nokogiri::HTML(open(url))
 
-page.css('.m-hp-block__container h2 a').each do |link|
+page.css('.m-hp-latest__list-container a').each do |link|
   headlines << link.inner_html
 end
 
